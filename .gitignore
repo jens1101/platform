@@ -1,0 +1,11 @@
+# Alwys keep ".keep" files. This is used to preserve directory structures.
+!.keep
+
+# Test output
+/*/tests/output
+
+# Env file
+*.env
+!*.sample.env
+
+/.ansible

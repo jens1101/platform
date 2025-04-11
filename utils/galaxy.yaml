@@ -1,0 +1,7 @@
+namespace: platform
+name: utils
+version: 1.0.0
+readme: README.md
+authors:
+  - Jens Tschirpig
+description: Collection of utilities related to managing the platform for app deployment.

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.schema.json",
+  "name": "Platform",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "DOCKER_GID": "131"
+    }
+  },
+  "remoteUser": "ubuntu",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/ansible_collections/platform,type=bind",
+  "workspaceFolder": "/ansible_collections/platform",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "gruntfuggly.todo-tree",
+        "esbenp.prettier-vscode",
+        "redhat.ansible"
+      ]
+    }
+  }
+}
