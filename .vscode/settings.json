@@ -2,5 +2,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "files.autoSave": "afterDelay",
-  "ansible.python.interpreterPath": "/bin/python3"
+  "ansible.python.interpreterPath": "/bin/python3",
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  }
 }
