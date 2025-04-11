@@ -8,3 +8,6 @@
 # Ansible folders
 /*/tests/output
 /.ansible
+
+# PXE ISO files
+*.iso

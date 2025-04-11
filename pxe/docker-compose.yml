@@ -1,0 +1,21 @@
+services:
+  tftp:
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - 69:69/udp
+    networks:
+      default:
+      vlan:
+        ipv4_address: ${TFTP_IP_ADDRESS}
+
+networks:
+  default:
+  vlan:
+    driver: macvlan
+    driver_opts:
+      parent: ${NETWORK_INTERFACE}
+    ipam:
+      config:
+        - subnet: ${IP_SUBNET}
+          gateway: ${GATEWAY}
