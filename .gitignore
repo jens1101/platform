@@ -11,3 +11,5 @@
 
 # PXE ISO files
 *.iso
+
+node_modules
