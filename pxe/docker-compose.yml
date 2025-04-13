@@ -1,13 +1,22 @@
 services:
   tftp:
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: tftp.Dockerfile
     ports:
       - 69:69/udp
     networks:
-      default:
       vlan:
         ipv4_address: ${TFTP_IP_ADDRESS}
+
+  api:
+    build:
+      dockerfile: api.Dockerfile
+    volumes:
+      - "./data:/app/data"
+    networks:
+      default:
+      vlan:
+        ipv4_address: ${API_IP_ADDRESS}
 
 networks:
   default:
