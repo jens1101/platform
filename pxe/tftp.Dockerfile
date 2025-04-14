@@ -1,12 +1,18 @@
 FROM pghalliday/tftp
 
-ENV BOOT_FILE=boot
+ARG ISO_URL
+ARG BOOT_FILE
 
 WORKDIR /var/tftpboot
 
-RUN cat <<EOF > "$BOOT_FILE"
+RUN cat <<EOF > "${BOOT_FILE}"
 #!ipxe
 
 dhcp
-chain http://boot.ipxe.org/demo/boot.php
+
+# TODO: this does work, but not all the way. There is obviously something missing
+kernel ${ISO_URL}/casper/vmlinuz
+initrd ${ISO_URL}/casper/initrd
+
+boot
 EOF

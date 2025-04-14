@@ -2,21 +2,32 @@ services:
   tftp:
     build:
       dockerfile: tftp.Dockerfile
+      args:
+        - ISO_URL=http://${API_IP}:${API_PORT}/iso
+        - BOOT_FILE=boot
     ports:
       - 69:69/udp
     networks:
       vlan:
-        ipv4_address: ${TFTP_IP_ADDRESS}
+        ipv4_address: ${TFTP_IP}
+    depends_on:
+      - api
 
   api:
     build:
       dockerfile: api.Dockerfile
+    privileged: true
     volumes:
       - "./data:/app/data"
+    environment:
+      - ISO_FILE=${API_ISO_FILE}
+      - ISO_MOUNT_PATH=${API_ISO_MOUNT_PATH}
+      - PORT=${API_PORT}
+      - USER_DATA_FILE=${API_USER_DATA_FILE}
     networks:
       default:
       vlan:
-        ipv4_address: ${API_IP_ADDRESS}
+        ipv4_address: ${API_IP}
 
 networks:
   default:
@@ -26,5 +37,5 @@ networks:
       parent: ${NETWORK_INTERFACE}
     ipam:
       config:
-        - subnet: ${IP_SUBNET}
+        - subnet: ${SUBNET}
           gateway: ${GATEWAY}

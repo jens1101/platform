@@ -4,6 +4,14 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "privileged": true,
+  "containerEnv": {
+    "ISO_FILE": "ubuntu-24.04.2-live-server-amd64.iso",
+    "ISO_MOUNT_PATH": "/mnt/iso",
+    "PORT": "80",
+    "USER_DATA_FILE": "user-data"
+  },
+  "overrideCommand": true,
   "remoteUser": "node",
   "customizations": {
     "vscode": {

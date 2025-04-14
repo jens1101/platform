@@ -16,21 +16,24 @@
     "test": "tsc"
   },
   "dependencies": {
-    "effect": "^3.14.8"
+    "effect": "3.14.8",
+    "express": "5.1.0",
+    "handlebars": "4.7.8"
   },
   "devDependencies": {
-    "@eslint/js": "^9.24.0",
+    "@eslint/js": "9.24.0",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "@tsconfig/node-lts": "22.0.1",
     "@tsconfig/strictest": "2.0.5",
+    "@types/express": "5.0.1",
     "@types/node": "22.14.1",
     "dpdm": "3.14.0",
-    "eslint": "^9.24.0",
+    "eslint": "9.24.0",
     "prettier": "3.5.3",
     "prettier-plugin-packagejson": "2.5.10",
     "prettier-plugin-sh": "0.17.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.29.1"
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.29.1"
   },
   "engines": {
     "node": ">=23.6.0"
