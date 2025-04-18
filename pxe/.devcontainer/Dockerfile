@@ -13,9 +13,3 @@ RUN usermod -g users node
 
 EXPOSE 9229
 EXPOSE 80
-
-# TODO: this does not work. Error:
-# Mounting ISO: ./data/ubuntu-24.04.2-live-server-amd64.iso to /mnt/iso
-# mount: /mnt/iso: failed to setup loop device for ./data/ubuntu-24.04.2-live-server-amd64.iso.
-# ENTRYPOINT ["sudo", "-E", "/workspaces/platform/pxe/entrypoint.sh"]
-# CMD ["sleep", "infinity"]

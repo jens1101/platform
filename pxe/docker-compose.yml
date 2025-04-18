@@ -1,10 +1,10 @@
 services:
   tftp:
     build:
-      dockerfile: tftp.Dockerfile
+      context: ./tftp
       args:
-        - ISO_URL=http://${API_IP}:${API_PORT}/iso
-        - BOOT_FILE=boot
+        - BOOT_URL=http://${API_IP}/
+        - COMMIT_SHA=be3a78eaf804a2c437aa055d5c1e2f4a1310a0c1
     ports:
       - 69:69/udp
     networks:
@@ -16,21 +16,11 @@ services:
   api:
     build:
       dockerfile: api.Dockerfile
-    privileged: true
-    volumes:
-      - "./data:/app/data"
-    environment:
-      - ISO_FILE=${API_ISO_FILE}
-      - ISO_MOUNT_PATH=${API_ISO_MOUNT_PATH}
-      - PORT=${API_PORT}
-      - USER_DATA_FILE=${API_USER_DATA_FILE}
     networks:
-      default:
       vlan:
         ipv4_address: ${API_IP}
 
 networks:
-  default:
   vlan:
     driver: macvlan
     driver_opts:

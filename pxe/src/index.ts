@@ -2,6 +2,7 @@ import { endpointWrapper } from "./utils.ts";
 import { Effect, pipe } from "effect";
 import express from "express";
 import Handlebars from "handlebars";
+import path from "node:path";
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.get("/user-data", (_req, res) =>
   ),
 );
 
-app.use("/iso", express.static(process.env.ISO_MOUNT_PATH));
+app.get("/", (_req, res) => {
+  res.download(path.join(import.meta.dirname, "boot.ipxe"));
+});
 
-app.listen(process.env.PORT);
+app.listen(80);

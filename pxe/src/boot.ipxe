@@ -1,0 +1,11 @@
+#!ipxe
+set os_arch x86_64
+set version 24.11
+
+# TODO: find out the necessary kernel params for auto-config SSH
+# TODO: maybe we can use nix-anywhere?
+# set cmdline
+
+dhcp
+chain https://github.com/nix-community/nixos-images/releases/download/nixos-${version}/netboot-${os_arch}-linux.ipxe
+boot

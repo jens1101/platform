@@ -1,13 +1,12 @@
-FROM node:latest
+FROM node:23
+
 WORKDIR /app
 ENV NODE_ENV=production
+# TODO: optimise this. Oftentimes a rebuild is triggerd from an irrevevant file change.
 COPY . .
 RUN ["npm", "ci"]
-
-RUN chmod +x entrypoint.sh
 
 VOLUME /app/data
 EXPOSE 80
 
-ENTRYPOINT ["./entrypoint.sh"]
 CMD ["npm", "run", "start"]

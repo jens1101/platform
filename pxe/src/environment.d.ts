@@ -1,10 +1,6 @@
 declare global {
   namespace NodeJS {
-    interface ProcessEnv {
-      PORT: string;
-      USER_DATA_FILE: string;
-      ISO_MOUNT_PATH: string;
-    }
+    interface ProcessEnv {}
   }
 }
 
