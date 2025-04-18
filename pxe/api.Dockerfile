@@ -2,8 +2,8 @@ FROM node:23
 
 WORKDIR /app
 ENV NODE_ENV=production
-# TODO: optimise this. Oftentimes a rebuild is triggerd from an irrevevant file change.
-COPY . .
+COPY package.json package-lock.json ./
+COPY src ./src
 RUN ["npm", "ci"]
 
 VOLUME /app/data
