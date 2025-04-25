@@ -6,9 +6,9 @@ import path from "node:path";
 
 const app = express();
 
+// TODO: remove this
 app.get("/user-data", (_req, res) =>
   pipe(
-    // TODO: get the user data file here instead
     Effect.try(() => Handlebars.compile<{ name: string }>("Name: {{name}}")),
     Effect.andThen((template) => {
       res.send(template({ name: "Jens" }));
@@ -21,7 +21,15 @@ app.get("/user-data", (_req, res) =>
 );
 
 app.get("/", (_req, res) => {
-  res.download(path.join(import.meta.dirname, "boot.ipxe"));
+  res.download(process.env.NETBOOT_IPXE_PATH);
+});
+
+app.get("/kernel", (_req, res) => {
+  res.download(process.env.KERNEL_PATH);
+});
+
+app.get("/initrd", (_req, res) => {
+  res.download(process.env.INITRD_PATH);
 });
 
 app.listen(80);

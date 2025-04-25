@@ -16,6 +16,9 @@ services:
   api:
     build:
       dockerfile: api.Dockerfile
+      args:
+        - KERNEL_URL=http://${API_IP}/kernel
+        - INITRD_URL=http://${API_IP}/initrd
     networks:
       vlan:
         ipv4_address: ${API_IP}

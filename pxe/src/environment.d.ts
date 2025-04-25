@@ -1,6 +1,10 @@
 declare global {
   namespace NodeJS {
-    interface ProcessEnv {}
+    interface ProcessEnv {
+      KERNEL_PATH: string;
+      INITRD_PATH: string;
+      NETBOOT_IPXE_PATH: string;
+    }
   }
 }
 
