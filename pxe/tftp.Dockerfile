@@ -8,8 +8,6 @@ WORKDIR /ipxe
 # builds can fail every time a new commit is pushed. To avoid this we always
 # build from a known goot commit.
 RUN git clone https://github.com/ipxe/ipxe.git . && git reset --hard ${COMMIT_SHA}
-COPY enableHttps.patch .
-RUN git apply enableHttps.patch
 WORKDIR /ipxe/src
 RUN cat <<EOF > "boot.ipxe"
 #!ipxe

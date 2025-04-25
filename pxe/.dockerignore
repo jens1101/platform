@@ -1,15 +1,6 @@
-.devcontainer
 .dockerignore
 .env
-.prettierignore
 .sample.env
-.vscode
-*.config.js
-*.config.ts
-*.iso
-**/*.iso
 *docker-compose.yml
 *Dockerfile
-node_modules
 README.md
-tsconfig.json

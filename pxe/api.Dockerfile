@@ -20,15 +20,5 @@ RUN nix build --no-link --print-out-paths \
   -e "s!^initrd initrd!initrd ${INITRD_URL}!" \
   "{}/netboot.ipxe" > ./out/netboot.ipxe
 
-FROM node:23
-WORKDIR /app
-ENV NODE_ENV=production
-ENV KERNEL_PATH=/netboot/bzImage
-ENV INITRD_PATH=/netboot/initrd
-ENV NETBOOT_IPXE_PATH=/netboot/netboot.ipxe
-COPY package.json package-lock.json ./
-COPY src ./src
-RUN ["npm", "ci"]
-COPY --from=nix /netboot/out/ /netboot
-EXPOSE 80
-CMD ["npm", "run", "start"]
+FROM nginx:stable-alpine
+COPY --from=nix /netboot/out/ /usr/share/nginx/html

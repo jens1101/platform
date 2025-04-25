@@ -1,9 +1,9 @@
 services:
   tftp:
     build:
-      context: ./tftp
+      dockerfile: tftp.Dockerfile
       args:
-        - BOOT_URL=http://${API_IP}/
+        - BOOT_URL=http://${API_IP}/netboot.ipxe
         - COMMIT_SHA=be3a78eaf804a2c437aa055d5c1e2f4a1310a0c1
     ports:
       - 69:69/udp
@@ -17,7 +17,7 @@ services:
     build:
       dockerfile: api.Dockerfile
       args:
-        - KERNEL_URL=http://${API_IP}/kernel
+        - KERNEL_URL=http://${API_IP}/bzImage
         - INITRD_URL=http://${API_IP}/initrd
     networks:
       vlan:
