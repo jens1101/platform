@@ -19,6 +19,7 @@ services:
       args:
         - SSH_PUBLIC_KEY=${SSH_PUBLIC_KEY}
         - PRESEED_URL=http://${API_IP}/preseed.cfg
+        - DISK_PATH=/dev/vda
     networks:
       vlan:
         ipv4_address: ${API_IP}
