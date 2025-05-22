@@ -1,6 +1,0 @@
-.dockerignore
-.env
-.sample.env
-*docker-compose.yml
-*Dockerfile
-README.md

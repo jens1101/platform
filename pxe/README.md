@@ -1,8 +1,10 @@
 # PXE Server
 
-## Files and directories
+This server consists of 2 components:
+1. The TFTP server which serves a version of IPXE with an embedded boot script.
+2. The HTTP server which serves the necessary files to perform an automated net
+   install of Debian.
 
-- "src/" contains the source code for the HTTP API.
-- "data/" contains the data that the API needs. Currently these are
-  - The ISO file to be booted
-  - Cloud init data for unattended setups
+The embedded script of the TFTP server always chain loads the IPXE script thats
+served by the HTTP server. In this fashion changes can easily be made to the
+boot procedure without having to re-build IPXE.

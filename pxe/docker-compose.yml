@@ -17,8 +17,8 @@ services:
     build:
       dockerfile: api.Dockerfile
       args:
-        - KERNEL_URL=http://${API_IP}/bzImage
-        - INITRD_URL=http://${API_IP}/initrd
+        - SSH_PUBLIC_KEY=${SSH_PUBLIC_KEY}
+        - PRESEED_URL=http://${API_IP}/preseed.cfg
     networks:
       vlan:
         ipv4_address: ${API_IP}

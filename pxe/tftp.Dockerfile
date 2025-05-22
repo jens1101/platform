@@ -6,7 +6,7 @@ RUN mkdir /ipxe
 WORKDIR /ipxe
 # IPXE for some reason abandoned tagging their code years ago. This means that
 # builds can fail every time a new commit is pushed. To avoid this we always
-# build from a known goot commit.
+# build from a known good commit.
 RUN git clone https://github.com/ipxe/ipxe.git . && git reset --hard ${COMMIT_SHA}
 WORKDIR /ipxe/src
 RUN cat <<EOF > "boot.ipxe"
