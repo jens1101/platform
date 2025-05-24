@@ -19,7 +19,7 @@
         "gruntfuggly.todo-tree",
         "esbenp.prettier-vscode",
         "redhat.ansible",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-containers"
       ]
     }
   }
