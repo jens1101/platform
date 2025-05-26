@@ -31,5 +31,5 @@ networks:
       parent: ${NETWORK_INTERFACE}
     ipam:
       config:
-        - subnet: ${SUBNET}
-          gateway: ${GATEWAY}
+        - subnet: ${SUBNET_CIDR}
+          gateway: ${GATEWAY_IP}

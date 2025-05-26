@@ -1,0 +1,14 @@
+services:
+  dhcp:
+    build:
+      dockerfile: dhcp.Dockerfile
+      args:
+        - SUBNET_IP=${SUBNET_IP}
+        - SUBNET_MASK=${SUBNET_MASK}
+        - DHCP_POOL_MIN_IP=${DHCP_POOL_MIN_IP}
+        - DHCP_POOL_MAX_IP=${DHCP_POOL_MAX_IP}
+        - GATEWAY_IP=${GATEWAY_IP}
+        - TFTP_IP=${TFTP_IP}
+    network_mode: host
+    ports:
+      - 67:67/udp
