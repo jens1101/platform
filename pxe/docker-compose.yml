@@ -1,0 +1,35 @@
+services:
+  tftp:
+    build:
+      dockerfile: tftp.Dockerfile
+      args:
+        - BOOT_URL=http://${API_IP}/netboot.ipxe
+        - COMMIT_SHA=be3a78eaf804a2c437aa055d5c1e2f4a1310a0c1
+    ports:
+      - 69:69/udp
+    networks:
+      vlan:
+        ipv4_address: ${TFTP_IP}
+    depends_on:
+      - api
+
+  api:
+    build:
+      dockerfile: api.Dockerfile
+      args:
+        - SSH_PUBLIC_KEY=${SSH_PUBLIC_KEY}
+        - PRESEED_URL=http://${API_IP}/preseed.cfg
+        - DISK_PATH=/dev/vda
+    networks:
+      vlan:
+        ipv4_address: ${API_IP}
+
+networks:
+  vlan:
+    driver: macvlan
+    driver_opts:
+      parent: ${NETWORK_INTERFACE}
+    ipam:
+      config:
+        - subnet: ${SUBNET_CIDR}
+          gateway: ${GATEWAY_IP}
