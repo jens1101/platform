@@ -30,7 +30,7 @@
     - name: Write the custom k0s config file
       become: true
       ansible.builtin.template:
-        src: k0s.yaml.j2
+        src: k0s.yml.j2
         dest: "{{ k0s_setup_config_dir }}/k0s.yaml"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
