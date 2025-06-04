@@ -1,0 +1,45 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Docker compose up: PXE",
+      "type": "shell",
+      "command": "docker compose up --build -d",
+      "options": {
+        "cwd": "${workspaceFolder}/pxe"
+      },
+      "presentation": {
+        "clear": true
+      }
+    },
+    {
+      "label": "Docker compose down: PXE",
+      "type": "shell",
+      "command": "docker compose down",
+      "options": {
+        "cwd": "${workspaceFolder}/pxe"
+      }
+    },
+    {
+      "label": "Docker compose up: PXE with DHCP",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.yml -f dhcp.docker-compose.yml up --build -d",
+      "options": {
+        "cwd": "${workspaceFolder}/pxe"
+      },
+      "presentation": {
+        "clear": true
+      }
+    },
+    {
+      "label": "Docker compose down: PXE with DHCP",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.yml -f dhcp.docker-compose.yml down",
+      "options": {
+        "cwd": "${workspaceFolder}/pxe"
+      }
+    }
+  ]
+}
