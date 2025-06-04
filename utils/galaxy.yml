@@ -10,4 +10,6 @@ tags:
   - k0s
   - linux
   - infrastructure
+  - docker
+  - python
 repository: https://github.com/jens1101/platform
