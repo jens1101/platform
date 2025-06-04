@@ -1,7 +1,13 @@
+---
 namespace: platform
 name: utils
+description: Collection of utilities related to managing the platform for app deployment.
 version: 1.0.0
 readme: README.md
 authors:
   - Jens Tschirpig
-description: Collection of utilities related to managing the platform for app deployment.
+tags:
+  - k0s
+  - linux
+  - infrastructure
+repository: https://github.com/jens1101/platform
