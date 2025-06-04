@@ -4,12 +4,19 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Home server lint",
+      "label": "Lint",
       "type": "shell",
-      "command": "ansible-lint playbook.yaml",
-      "options": {
-        "cwd": "${workspaceFolder}/home_server"
-      }
+      "command": "ansible-lint"
+    },
+    {
+      "label": "Galaxy install",
+      "type": "shell",
+      "command": "ansible-galaxy install -r requirements.yml"
+    },
+    {
+      "label": "Test sanity",
+      "type": "shell",
+      "command": "ansible-test sanity --docker"
     }
   ]
 }
