@@ -1,0 +1,18 @@
+---
+- name: Check if Python 3 is already installed
+  ansible.builtin.raw: which python3 > /dev/null && echo "PASS" || echo "FAIL"
+  register: python_check
+  changed_when: false
+
+- name: Install Python 3
+  become: true
+  ansible.builtin.raw: apt-get update && apt-get install -y python3
+  register: python_install
+  when: '"FAIL" in python_check.stdout'
+  changed_when: '"python3 is already the newest version" not in python_install.stdout'
+
+- name: Verify Python installation
+  ansible.builtin.raw: python3 --version
+  register: python_version_check
+  changed_when: false
+  failed_when: python_version_check.rc != 0
