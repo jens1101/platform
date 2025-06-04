@@ -4,6 +4,6 @@
   "files.autoSave": "afterDelay",
   "ansible.python.interpreterPath": "/bin/python3",
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers"
   }
 }
