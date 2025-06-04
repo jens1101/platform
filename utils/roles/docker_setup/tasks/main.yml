@@ -1,11 +1,4 @@
 ---
-- name: Install Docker dependencies
-  become: true
-  ansible.builtin.apt:
-    update_cache: true
-    name:
-      - ca-certificates
-      - curl
 - name: Create directories for keyrings
   become: true
   ansible.builtin.file:
