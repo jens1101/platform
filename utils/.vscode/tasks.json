@@ -6,17 +6,26 @@
     {
       "label": "Lint",
       "type": "shell",
-      "command": "ansible-lint"
+      "command": "ansible-lint",
+      "presentation": {
+        "clear": true
+      }
     },
     {
       "label": "Galaxy install",
       "type": "shell",
-      "command": "ansible-galaxy install -r requirements.yml"
+      "command": "ansible-galaxy install -r requirements.yml",
+      "presentation": {
+        "clear": true
+      }
     },
     {
       "label": "Test sanity",
       "type": "shell",
-      "command": "ansible-test sanity --docker"
+      "command": "ansible-test sanity --docker",
+      "presentation": {
+        "clear": true
+      }
     }
   ]
 }
