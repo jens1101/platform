@@ -13,3 +13,5 @@ tags:
   - docker
   - python
 repository: https://github.com/jens1101/platform
+dependencies:
+  "ansible.posix": ">=1.6.0"

@@ -12,14 +12,6 @@
       }
     },
     {
-      "label": "Galaxy install",
-      "type": "shell",
-      "command": "ansible-galaxy install -r requirements.yml",
-      "presentation": {
-        "clear": true
-      }
-    },
-    {
       "label": "Test sanity",
       "type": "shell",
       "command": "ansible-test sanity --docker",
