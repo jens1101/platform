@@ -40,7 +40,7 @@
     - name: Generate default k0s config
       become: true
       when: not k0s_setup_use_custom_config
-      ansible.builtin.command: k0s config create > {{ k0s_setup_config_dir }}/k0s.yaml
+      ansible.builtin.shell: k0s config create > {{ k0s_setup_config_dir }}/k0s.yaml
       changed_when: true
 
 - name: Setup single node controller
@@ -69,6 +69,7 @@
         timeout: 180
 
     - name: Copy config file to user home directory
+      become: true
       ansible.builtin.copy:
         src: "{{ k0s_setup_data_dir }}/pki/admin.conf"
         dest: ~{{ ansible_user }}/k0s-kubeconfig.yml
