@@ -1,5 +1,25 @@
 # Platform.utils collection
 
+## Roles
+
+### Python Setup
+
+Sets up Python 3 on the target host. This uses raw tasks and does itself not
+rely on Python.
+
+### Docker Setup
+
+Sets up Docker and Docker Compose on the target host.
+
+### k0s Setup
+
+Sets up a single node k0s controller on the target host. The resulting kube
+config will be copied to "[inventory directory]/artifacts/k0s-kubeconfig.yml".
+
+### k0s Remove
+
+Removes a k0s setup from the target host.
+
 ## Tests
 
 Note that the tests use Docker-in-Docker. Each test creates a Docker container
