@@ -9,7 +9,5 @@ k0s_setup_config_dir: /etc/k0s
 k0s_setup_data_dir: /var/lib/k0s
 # The k0s libexec directory
 k0s_setup_libexec_dir: /usr/libexec/k0s/
-# Toggle whether or not a custom config file should be used
-k0s_setup_use_custom_config: false
 # The directory on the host where any artifacts will be copied to
 k0s_setup_artifacts_dir: "{{ inventory_dir }}/artifacts"
