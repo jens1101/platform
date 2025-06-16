@@ -11,3 +11,5 @@ k0s_setup_data_dir: /var/lib/k0s
 k0s_setup_libexec_dir: /usr/libexec/k0s/
 # The directory on the host where any artifacts will be copied to
 k0s_setup_artifacts_dir: "{{ inventory_dir }}/artifacts"
+# The file name of the kubeconfig file
+k0s_setup_kubeconfig_file: "k0s-kubeconfig.yml"
