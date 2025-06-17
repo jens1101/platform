@@ -20,6 +20,11 @@ config will be copied to "[inventory directory]/artifacts/k0s-kubeconfig.yml".
 
 Removes a k0s setup from the target host.
 
+### k0s Config Edit
+
+Edits the existing k0s config by merging the existing config with the desired
+changes.
+
 ## Tests
 
 Note that the tests use Docker-in-Docker. Each test creates a Docker container
