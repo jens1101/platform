@@ -1,0 +1,8 @@
+---
+# The path where the virtual environment will be installed at.
+python_venv_path:
+# Any packages that will be installed in the virtual environment.
+python_venv_packages: []
+# Whether or not the python interpreter should be updated to the new virtual
+# environment
+python_venv_update_interpreter: true

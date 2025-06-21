@@ -1,0 +1,25 @@
+---
+- name: Install dependencies
+  become: true
+  ansible.builtin.package:
+    name:
+      - python3-venv
+      - python3-packaging
+    state: present
+
+- name: Create Python virtual environment
+  ansible.builtin.command: "python3 -m venv {{ python_venv_path }}"
+  args:
+    creates: "{{ python_venv_path }}/bin/activate"
+
+- name: Install Python packages
+  when: python_venv_packages | length > 0
+  ansible.builtin.pip:
+    name: "{{ python_venv_packages }}"
+    state: present
+    virtualenv: "{{ python_venv_path }}"
+
+- name: Set `ansible_python_interpreter`
+  when: python_venv_update_interpreter
+  ansible.builtin.set_fact:
+    ansible_python_interpreter: "{{ python_venv_path }}/bin/python3"
