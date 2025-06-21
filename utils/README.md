@@ -25,6 +25,12 @@ Removes a k0s setup from the target host.
 Edits the existing k0s config by merging the existing config with the desired
 changes.
 
+### Python venv
+
+A convenience role for setting up a python virtual environment. It installs all
+the necessary dependencies, allows for additional Pip packages to be installed,
+and updates the Python interpreter used by Ansible.
+
 ## Tests
 
 Note that the tests use Docker-in-Docker. Each test creates a Docker container
