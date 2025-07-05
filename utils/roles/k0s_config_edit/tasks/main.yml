@@ -10,7 +10,7 @@
 - name: Merge desired changes with existing configuration
   ansible.builtin.set_fact:
     merged_k0s_data: >
-      {{ existing_k0s_data | combine(k0s_config_edit_config_changes, recursive=True) }}
+      {{ existing_k0s_data | combine(k0s_config_edit_config_changes, recursive=True, list_merge="append") }}
 - name: Write the merged configuration back to the file
   become: true
   ansible.builtin.copy:
