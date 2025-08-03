@@ -17,9 +17,11 @@ services:
     build:
       dockerfile: api.Dockerfile
       args:
-        - SSH_PUBLIC_KEY=${SSH_PUBLIC_KEY}
         - PRESEED_URL=http://${API_IP}/preseed.cfg
+        - SSH_PUBLIC_KEY=${SSH_PUBLIC_KEY}
         - DISK_PATH=/dev/vda
+        - HOST_NAME=${HOST_NAME}
+        - VG_NAME=${VG_NAME}
     networks:
       vlan:
         ipv4_address: ${API_IP}

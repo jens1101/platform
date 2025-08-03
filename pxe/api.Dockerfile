@@ -8,6 +8,10 @@ ARG SSH_PUBLIC_KEY
 # The path of the disk that should be formatted and used by the OS.
 # Example: /dev/sda
 ARG DISK_PATH
+# The host name to use for the new system
+ARG HOST_NAME
+# The name for the logical volume group
+ARG VG_NAME
 
 WORKDIR /usr/share/nginx/html
 
@@ -16,5 +20,5 @@ RUN envsubst '$PRESEED_URL' < template.netboot.ipxe > netboot.ipxe
 RUN rm template.netboot.ipxe
 
 COPY preseed.cfg template.preseed.cfg
-RUN envsubst '$SSH_PUBLIC_KEY,$DISK_PATH' < template.preseed.cfg > preseed.cfg
+RUN envsubst '$SSH_PUBLIC_KEY,$DISK_PATH,$HOST_NAME,$VG_NAME' < template.preseed.cfg > preseed.cfg
 RUN rm template.preseed.cfg
