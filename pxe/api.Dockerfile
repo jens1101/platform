@@ -12,6 +12,9 @@ ARG DISK_PATH
 ARG HOST_NAME
 # The name for the logical volume group
 ARG VG_NAME
+# Amount of volume group to use for guided partitioning. It can either be a size
+# with its unit (eg. 20 GB), a percentage of free space or the 'max' keyword.
+ARG MAIN_PARTITION_SIZE
 
 WORKDIR /usr/share/nginx/html
 
@@ -20,5 +23,6 @@ RUN envsubst '$PRESEED_URL' < template.netboot.ipxe > netboot.ipxe
 RUN rm template.netboot.ipxe
 
 COPY preseed.cfg template.preseed.cfg
-RUN envsubst '$SSH_PUBLIC_KEY,$DISK_PATH,$HOST_NAME,$VG_NAME' < template.preseed.cfg > preseed.cfg
+RUN envsubst '$SSH_PUBLIC_KEY,$DISK_PATH,$HOST_NAME,$VG_NAME,\
+  $MAIN_PARTITION_SIZE' < template.preseed.cfg > preseed.cfg
 RUN rm template.preseed.cfg
