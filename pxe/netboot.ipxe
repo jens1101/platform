@@ -2,7 +2,7 @@
 
 set os_arch amd64
 set debian_version bookworm
-set debian_mirror http://deb.debian.org
+set debian_mirror ${DEBIAN_MIRROR_URL}
 set dir debian/dists/${debian_version}/main/installer-${os_arch}/current/images/netboot/debian-installer/${os_arch}
 set install_params auto=true priority=critical preseed/url=${PRESEED_URL}
 

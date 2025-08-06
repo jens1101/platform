@@ -23,6 +23,7 @@ services:
         - HOST_NAME=${HOST_NAME}
         - VG_NAME=${VG_NAME}
         - MAIN_PARTITION_SIZE=10 GB
+        - DEBIAN_MIRROR_HOST=deb.debian.org
     networks:
       vlan:
         ipv4_address: ${API_IP}
