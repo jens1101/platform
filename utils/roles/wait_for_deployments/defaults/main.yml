@@ -1,0 +1,5 @@
+---
+# The namespace to which the deployments belong to
+wait_for_deployments_namespace: default
+# The location where the kubeconfig file is located
+wait_for_deployments_kubeconfig: ~/.kube/config
