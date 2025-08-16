@@ -1,0 +1,27 @@
+---
+- name: Wait for the namespace to be created
+  kubernetes.core.k8s:
+    kubeconfig: "{{ wait_for_deployments_kubeconfig }}"
+    name: "{{ wait_for_deployments_namespace }}"
+    kind: Namespace
+    state: present
+- name: Get list of deployments
+  kubernetes.core.k8s_info:
+    kubeconfig: "{{ wait_for_deployments_kubeconfig }}"
+    kind: Deployment
+    namespace: "{{ wait_for_deployments_namespace }}"
+  register: wait_for_deployments_list
+- name: Wait for each deployment to become ready
+  kubernetes.core.k8s_info:
+    kubeconfig: "{{ wait_for_deployments_kubeconfig }}"
+    kind: Deployment
+    name: "{{ deployment.metadata.name }}"
+    namespace: "{{ wait_for_deployments_namespace }}"
+    wait: true
+    wait_condition:
+      type: Available
+      status: "True"
+  loop: "{{ wait_for_deployments_list.resources }}"
+  loop_control:
+    loop_var: deployment
+    label: "{{ deployment.metadata.name }}"
