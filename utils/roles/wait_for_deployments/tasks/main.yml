@@ -21,6 +21,7 @@
     wait_condition:
       type: Available
       status: "True"
+    wait_timeout: "{{ wait_for_deployments_timeout }}"
   loop: "{{ wait_for_deployments_list.resources }}"
   loop_control:
     loop_var: deployment

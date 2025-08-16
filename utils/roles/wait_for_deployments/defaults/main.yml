@@ -3,3 +3,5 @@
 wait_for_deployments_namespace: default
 # The location where the kubeconfig file is located
 wait_for_deployments_kubeconfig: ~/.kube/config
+# The number of seconds to wait for each K8s resource to become ready
+wait_for_deployments_timeout: 600
